@@ -3,10 +3,11 @@
 > vi ~/.bash_profile
 
 ```
-export PS1='😶 \[\033[1;36m\]\A \[\033[1;35m\]@\u: \[\033[1;33;4m\]\w\[\033[m\] \$\n\[\033[1;m\]'
+export PS1="\[\e[1;4;33m\]😶  \[\e[1;4;36m\]\u: \[\e[1;4;35m\]\w \[\e[m\]\$ "
+
 export CLICOLOR=1
 export LSCOLORS=CxExCxDxCxegedabagaced
-alias ls='ls -GFh'
+alias ls='ls -GFh' 
 ```
 
 Some PS1 Codes
