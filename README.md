@@ -7,7 +7,7 @@
 both OK
 
 ```
-export PS1="\[\e[1;4;33m\]😶  \[\e[1;4;36m\]\u: \[\e[1;4;35m\]\w \[\e[m\]\$ "
+export PS1="\[\033[01;31m\]▶︎ \[\033[01;36m\]\u: \[\033[01;35m\]\w \[\033[m\]\$ " 
 
 export CLICOLOR=1
 export LSCOLORS=CxExCxDxCxegedabagaced
