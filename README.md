@@ -7,7 +7,14 @@
 both OK
 
 ```
-export PS1="\n\[\033[01;31m\]▶︎ \[\033[01;36m\]\u: \[\033[01;35m\]\w \n\[\033[m\]\$ "
+// git branch
+parse_git_branch() {
+     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
+}
+```
+
+```
+export PS1="\n\[\033[01;31m\]▶︎ \[\033[01;36m\]\u: \[\033[01;35m\]\w \n\[\033[m\]\$(parse_git_branch)\$ "
 
 export CLICOLOR=1
 export LSCOLORS=CxExCxDxCxegedabagaced
