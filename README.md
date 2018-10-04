@@ -104,7 +104,7 @@ function git_color {
 }
 
 function git_branch {
-  local git_status="$(git status 2> /dev/null)"
+  local git_status="$ git status 2> /dev/null"
   local on_branch="On branch ([^${IFS}]*)"
   local on_commit="HEAD detached at ([^${IFS}]*)"
 
@@ -118,11 +118,28 @@ function git_branch {
 }
 
 parse_git_branch() {
-    git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
+     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ ⎇ \1/'
 }
-export PS1="\n\e[1;39;46m \u \e[4;96;49m◣ \e[1;35;49m\w\e[0;31;49m ➤ \[\$(git_color)\]\$(git_branch) \n\[\033[m\]\$ "
+
+export PS1="\n\e[1;39;46m \u \e[4;96;49m◣ \e[1;35;49m\w\e[0;31;49m\e[0;93;49m\$(parse_git_branch) \n\[\033[m\]\$ "
 
 export CLICOLOR=1
 export LSCOLORS=CxExCxDxCxegedabagaced
 alias ls='ls -GFh' 
+
+alias st='git status'
+alias pl='git pull'
+alias ps='git push'
+alias rsh='git rest --hard'
+alias rb='git rebase'
+alias rbc='git add . && git rebase --continue'
+alias rbs='git rebase --skip'
+alias mg='git merge'
+alias br='git branch'
+alias ck='git checkout'
+alias ckb='git checkout -b'
+alias log='git log'
+alias logp='git log --pretty=format:"%h %s" --graph'
+alias cm='git add . && git commit -m'
+alias pss='git push --set-upstream origin'
 ```
